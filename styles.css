@@ -4,6 +4,30 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.btn-primary {
+    background-color: #4695ba;
+    border-color: #000000;
+    border-width: 2px;
+
+}
+
+body .btn-primary:hover {
+    background-color: #347eb4 !important;
+    border-color: #000000 !important;
+}
+
+.btn-outline-primary {
+    border-color: #BDD8B1;
+    border-width: 2px;
+    color: #000000;
+}
+
+.btn-outline-primary:hover {
+    background-color: #BDD8B1 !important;
+    border-color: #000000 !important;
+    color: #000000 !important;
+}
+
 .main-footer {
     background-color: #BDD8B1;
     color: black;
