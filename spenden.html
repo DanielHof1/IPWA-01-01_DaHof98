@@ -34,93 +34,108 @@
                             <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </nav>
     </header>
     <main class="container mt-5" id="app">
-        <h1 class="mb-4">Neue Spende registrieren</h1>
-        <div class="card card-body shadow-sm" style="width: fit-content;">
-            <h4 class="card-title mb-4">Wie möchten Sie die Spende übergeben?</h4>
-            <div class="mb-4">
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" id="abholung" value="abholung" v-model="uebergabeArt">
-                    <label class="form-check-label" for="pickup">
-                        Abholung durch Sammelfahrzeug (nur PLZ-Gebiet 64xxx)
-                    </label>
+        <div v-if="!istRegistriert">
+            <h1 class="mb-4">Neue Spende registrieren</h1>
+            <div class="card card-body shadow-sm" style="width: fit-content;">
+                <h4 class="card-title mb-4">Wie möchten Sie die Spende übergeben?</h4>
+                <div class="mb-4">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" id="abholung" value="abholung"
+                            v-model="uebergabeArt">
+                        <label class="form-check-label" for="pickup">
+                            Abholung durch Sammelfahrzeug (nur PLZ-Gebiet 64xxx)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="bringen" value="bringen"
+                            v-model="uebergabeArt">
+                        <label class="form-check-label" for="bringen">
+                            Persönliche Übergabe an der Geschäftsstelle
+                        </label>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" id="bringen" value="bringen" v-model="uebergabeArt">
-                    <label class="form-check-label" for="bringen">
-                        Persönliche Übergabe an der Geschäftsstelle
-                    </label>
-                </div>
-            </div>
 
-            <div v-if="uebergabeArt === 'abholung'" class="mt-4 mb-4">
-                <h5 class="mb-3">Abholadresse</h5>
-                <div class="mb-3">
-                    <label class="form-label">Vorname</label>
-                    <input type="text" class="form-control" v-model="adresse.vorname">
+                <div v-if="uebergabeArt === 'abholung'" class="mt-4 mb-4">
+                    <h5 class="mb-3">Abholadresse</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Vorname</label>
+                        <input type="text" class="form-control" v-model="adresse.vorname">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" v-model="adresse.name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Straße und Hausnummer</label>
+                        <input type="text" class="form-control" v-model="adresse.strasse">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">PLZ</label>
+                            <input type="text" class="form-control" v-model="adresse.plz" placeholder="" maxlength="5">
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <label class="form-label">Stadt</label>
+                            <input type="text" class="form-control" v-model="adresse.stadt">
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" v-model="adresse.name">
+                <div v-if="uebergabeArt === 'bringen'" class="mt-4 mb-4">
+                    <h5 class="mb-3">Ihre Angaben</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Vorname</label>
+                        <input type="text" class="form-control" v-model="adresse.vorname">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" v-model="adresse.name">
+                    </div>
+
+                    <h5 class="pt-3">Details zur Spende</h5>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Straße und Hausnummer</label>
-                    <input type="text" class="form-control" v-model="adresse.strasse">
-                </div>
+
                 <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label class="form-label">PLZ</label>
-                        <input type="text" class="form-control" v-model="adresse.plz" placeholder="" maxlength="5">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Art der Kleidung</label>
+                        <select class="form-select" v-model="spende.kleidungsart">
+                            <option disabled value="">Bitte auswählen...</option>
+                            <option>Männerkleidung</option>
+                            <option>Frauenkleidung</option>
+                            <option>Kinderkleidung</option>
+                            <option>Schuhe & Accessoires</option>
+                        </select>
                     </div>
-                    <div class="col-md-8 mb-3">
-                        <label class="form-label">Stadt</label>
-                        <input type="text" class="form-control" v-model="adresse.stadt">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Aktuelles Krisengebiet</label>
+                        <select class="form-select" v-model="spende.krisengebiet">
+                            <option disabled value="">Bitte auswählen...</option>
+                            <option>Erdbebengebiet Türkei</option>
+                            <option>Ukraine Nothilfe</option>
+                            <option>Lokale Obachlosenhilfe</option>
+                        </select>
                     </div>
+                    <a href="#" class="spenden-button btn btn-primary ms-2 mt-4 w-50"
+                        @click.prevent="registrieren">Spende
+                        jetzt registrieren</a>
                 </div>
-            </div>
-            <div v-if="uebergabeArt === 'bringen'" class="mt-4 mb-4">
-                <h5 class="mb-3">Ihre Angaben</h5>
-                <div class="mb-3">
-                    <label class="form-label">Vorname</label>
-                    <input type="text" class="form-control" v-model="adresse.vorname">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" v-model="adresse.name">
-                </div>
-
-                <h5 class="pt-3">Details zur Spende</h5>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Art der Kleidung</label>
-                    <select class="form-select" v-model="spende.kleidungsart">
-                        <option disabled value="">Bitte auswählen...</option>
-                        <option>Männerkleidung</option>
-                        <option>Frauenkleidung</option>
-                        <option>Kinderkleidung</option>
-                        <option>Schuhe & Accessoires</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Aktuelles Krisengebiet</label>
-                    <select class="form-select" v-model="spende.krisengebiet">
-                        <option disabled value="">Bitte auswählen...</option>
-                        <option>Erdbebengebiet Türkei</option>
-                        <option>Ukraine Nothilfe</option>
-                        <option>Lokale Obachlosenhilfe</option>
-                    </select>
-                </div>
-                <a href="#" class="spenden-button btn btn-primary ms-2 mt-4 w-50" @click.prevent="registrieren">Spende
-                    jetzt registrieren</a>
             </div>
         </div>
+        <div v-else>
+            <div class="card-body p-5 text-center">
+                <h1>Vielen Dank, {{ adresse.vorname }}!</h1>
+                <p class="lead">Deine Spende für <Strong> {{ spende.krisengebiet}}</Strong></p>
+                <p v-if="uebergabeArt === 'abholung'">
+                    Wir holen die Spende in <strong>{{ adresse.stadt }}</strong> ab.
+                </p>
+                <a href="spenden.html" class="btn btn-outline-success">Noch eine Spende erfassen</a>
+            </div>
         </div>
 
     </main>

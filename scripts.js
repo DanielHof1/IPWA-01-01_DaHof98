@@ -4,6 +4,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            istRegistriert: false,
+
             uebergabeArt: 'abholung',
             adresse: {
                 name: '',
@@ -36,6 +38,7 @@ createApp({
                     return;
                 }
             }
+            this.istRegistriert = true;
         }
 
     }
