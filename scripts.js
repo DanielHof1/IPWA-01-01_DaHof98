@@ -38,6 +38,10 @@ createApp({
                     return;
                 }
             }
+
+            const jetzt = new Date();
+            this.registrierungsDatum = jetzt.toLocaleString('de-DE');
+
             this.istRegistriert = true;
         }
 

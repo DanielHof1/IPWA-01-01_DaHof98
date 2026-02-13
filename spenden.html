@@ -129,14 +129,31 @@
         </div>
         <div v-else>
             <div class="card-body p-5 text-center">
-                <h1>Vielen Dank, {{ adresse.vorname }}!</h1>
-                <p class="lead">Deine Spende für <Strong> {{ spende.krisengebiet}}</Strong></p>
-                <p v-if="uebergabeArt === 'abholung'">
-                    Wir holen die Spende in <strong>{{ adresse.stadt }}</strong> ab.
-                </p>
+                <h1>Vielen Dank!</h1>
+                <p class="lead"><Strong>Zusammenfassung:</Strong>
+                <p>Vorname: {{ adresse.vorname }}</p>
+                <p>Nachname: {{ adresse.name }}</p>
+                <p>Art der Kleidung: {{spende.kleidungsart }}</p>
+                <p>Krisengebiet: {{ spende.krisengebiet}}</p>
+                <p>Registriert am: {{ registrierungsDatum }} Uhr</p>
+            </div>
+            <div v-if="uebergabeArt === 'bringen'">
+                <p> Bitte bringen Sie Ihre Spende bei unserer Geschäftsstelle vorbei.</p>
+                <p> Vor Ort können Sie Ihre Spende am Tablet abschließend registrieren.</p>
+                <p>Geschäftsstelle:</p>
+                <p>KleiderAnker Zentrale</p>
+                <p>Musterstraße 1</p>
+                <p>64720 Michelstadt</p>
+            </div>
+
+            <div v-if="uebergabeArt === 'abholung'">
+                <p> Wir holen die Spende bei Ihnen ab:</p>
+                <p>Straße: {{ adresse.strasse }}</p>
+                <p>Stadt: {{ adresse.plz }}</p>
+            </div>
+            <div>
                 <a href="spenden.html" class="btn btn-outline-success">Noch eine Spende erfassen</a>
             </div>
-        </div>
 
     </main>
     <footer class="main-footer mt-5">
