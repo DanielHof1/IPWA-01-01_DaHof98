@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KleiderAnker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="header-logo" href="index.html"><img src="images/Logo_KleiderAnker.png" width="80"
+                        class="me-2">KleiderAnker</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Menü</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Startseite</a></li>
+                            <li class="nav-item"><a class="nav-link" href="spenden.html">Spende registrieren</a></li>
+                            <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-5">
+        <div class="border rounded p-4 bg-light w-50">
+            <h5>KleiderAnker Zentrale</h5>
+            <p>Musterstraße 1<br>
+                64720 Michelstadt <br>
+                Tel.: 06061-00000</p>
+            <h5 class="mt-5">Telefonische Erreichbarkeit: </h5>
+            <p>
+                Montag bis Mittwoch: 10:00 - 15:00 Uhr <br>
+                Donnerstag und Freitag: 7:00 - 10:00 Uhr
+            </p>
+        </div>
+
+
+    </main>
+    <footer class="main-footer mt-5">
+        <div class="container">
+            <span>&copy; 2026 KleiderAnker</span>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
