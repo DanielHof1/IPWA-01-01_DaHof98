@@ -128,32 +128,37 @@
             </div>
         </div>
         <div v-else>
-            <div class="card-body p-5 text-center">
-                <h1>Vielen Dank!</h1>
-                <p class="lead"><Strong>Zusammenfassung:</Strong>
-                <p>Vorname: {{ adresse.vorname }}</p>
-                <p>Nachname: {{ adresse.name }}</p>
-                <p>Art der Kleidung: {{spende.kleidungsart }}</p>
-                <p>Krisengebiet: {{ spende.krisengebiet}}</p>
-                <p>Registriert am: {{ registrierungsDatum }} Uhr</p>
-            </div>
-            <div v-if="uebergabeArt === 'bringen'">
-                <p> Bitte bringen Sie Ihre Spende bei unserer Geschäftsstelle vorbei.</p>
-                <p> Vor Ort können Sie Ihre Spende am Tablet abschließend registrieren.</p>
-                <p>Geschäftsstelle:</p>
-                <p>KleiderAnker Zentrale</p>
-                <p>Musterstraße 1</p>
-                <p>64720 Michelstadt</p>
-            </div>
+            <div class="card-body p-4 text-start">
+                <h1 class="mb-4">Vielen Dank!</h1>
+                <h5><strong>Zusammenfassung:</strong></h5>
+                <div class="mt-4">
+                    <p>Vorname: {{ adresse.vorname }} <br>
+                        Nachname: {{ adresse.name }}<br>
+                        Art der Kleidung: {{spende.kleidungsart }} <br>
+                        Krisengebiet: {{ spende.krisengebiet}} <br>
+                        Registriert am: {{ registrierungsDatum }} Uhr</p>
+                </div>
+                <div v-if="uebergabeArt === 'bringen'" class="mt-4">
+                    <h6> Bitte bringen Sie Ihre Spende bei unserer Geschäftsstelle vorbei. <br>
+                        Vor Ort können Sie Ihre Spende am Tablet abschließend registrieren.</h6>
+                    <div class="mt-4">
+                        <p>KleiderAnker Zentrale <br>
+                            Musterstraße 1 <br>
+                            64720 Michelstadt</p>
+                    </div>
+                </div>
+                <div v-if="uebergabeArt === 'abholung'" class="mt-4">
+                    <h6> Wir holen die Spende bei Ihnen ab:</h6>
+                    <div class="mt-4">
+                        <p>Straße: {{ adresse.strasse }}<br>
+                            Stadt: {{ adresse.plz }}</p>
+                    </div>
+                    <div>
+                        <a href="spenden.html" class="btn btn-outline-success mt-3">Noch eine Spende erfassen</a>
+                    </div>
+                </div>
 
-            <div v-if="uebergabeArt === 'abholung'">
-                <p> Wir holen die Spende bei Ihnen ab:</p>
-                <p>Straße: {{ adresse.strasse }}</p>
-                <p>Stadt: {{ adresse.plz }}</p>
-            </div>
-            <div>
-                <a href="spenden.html" class="btn btn-outline-success">Noch eine Spende erfassen</a>
-            </div>
+
 
     </main>
     <footer class="main-footer mt-5">
