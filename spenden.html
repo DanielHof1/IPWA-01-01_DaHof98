@@ -81,8 +81,8 @@
                             <input type="text" class="form-control" v-model="adresse.plz" placeholder="" maxlength="5">
                         </div>
                         <div class="col-md-8 mb-3">
-                            <label class="form-label">Stadt</label>
-                            <input type="text" class="form-control" v-model="adresse.stadt">
+                            <label class="form-label">Wohnort</label>
+                            <input type="text" class="form-control" v-model="adresse.wohnort">
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                     <h6> Wir holen die Spende bei Ihnen ab:</h6>
                     <div class="mt-4">
                         <p>Straße: {{ adresse.strasse }}<br>
-                            Stadt: {{ adresse.plz }}</p>
+                            Wohnort: {{ adresse.plz }}, {{ adresse.wohnort }}</p>
                     </div>
                 </div>
                 <div>

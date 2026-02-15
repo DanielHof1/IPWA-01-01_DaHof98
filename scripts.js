@@ -12,7 +12,7 @@ createApp({
                 vorname: '',
                 strasse: '',
                 plz: '',
-                stadt: ''
+                wohnort: ''
             },
             spende: {
                 kleidungsart: '',
