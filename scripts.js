@@ -29,7 +29,7 @@ createApp({
             }
 
             if (this.uebergabeArt === 'abholung') {
-                if (this.adresse.name === '' || this.adresse.vorname === '' || this.adresse.strasse === '' || this.adresse.plz === '' || this.adresse.stadt === '') {
+                if (this.adresse.name === '' || this.adresse.vorname === '' || this.adresse.strasse === '' || this.adresse.plz === '' || this.adresse.wohnort === '') {
                     alert("Bitte gib deine vollständige Adresse an!");
                     return;
                 }
